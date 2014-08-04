@@ -59,19 +59,19 @@ function initializeControls() {
 // Controller clicked (dot)
 $('.divfader-controller').on('click',function(event){
 	abortCycle();
-    showSlide($(event.target).index());
+    showSlide($(event.target).index(), true);
 });
 
 // Next clicked
 $('.divfader-next').on('click',function(event){
 	abortCycle();
-    nextSlide();
+    nextSlide(true);
 });
 
 // Previous clicked
 $('.divfader-previous').on('click',function(event){
 	abortCycle();
-    previousSlide();
+    previousSlide(true);
 });
 
 // Cycle through slides
@@ -88,39 +88,46 @@ function cycle() {
 // Playback functions
 // ------------------------
 // Show specific slide
-function showSlide(slideId) {
+// Responsive will ensure that controls are updated instantly
+function showSlide(slideId, responsive) {
 	// Stop all other animations
 	content.stop();
+
+	// Responsive controls
+	if (responsive) setActiveControl(slideId);
 
 	// Fade out previous slide
 	slide = content.eq(current);
 	slide.fadeOut(fadeTimer, function() {
 		current = slideId;
 
-		// Fade in next slide
-		slide = content.eq(slideId);
-
-		// Toggle control
-		if (showControls){
-			controls.removeClass("divfader-control-active").addClass("divfader-control");
-			controls.eq(slideId).removeClass("divfader-control").addClass("divfader-control-active");
-			//controls.css({ opacity: 0.3 });
-			//controls.eq(slideId).css({ opacity: 1.0 });
-		}
+		// Update controls normally
+		if (!responsive) setActiveControl(slideId);
 
 		// Fade in
+		slide = content.eq(slideId);
 	    slide.fadeIn(fadeTimer);
 	});
 }
 
 // Show next slide
-function nextSlide() {
-	showSlide((current+1) % content.length);
+// Responsive will ensure that controls are updated instantly
+function nextSlide(responsive) {
+	showSlide((current+1) % content.length, responsive);
 }
 
 // Show previous slide
-function previousSlide() {
-	showSlide((current-1) % content.length);
+// Responsive will ensure that controls are updated instantly
+function previousSlide(responsive) {
+	showSlide((current-1) % content.length, responsive);
+}
+
+// Set active control (dot)
+function setActiveControl(id) {
+	if (showControls){
+		controls.removeClass("divfader-control-active").addClass("divfader-control");
+		controls.eq(id).removeClass("divfader-control").addClass("divfader-control-active");
+	}
 }
 
 // Abort autoplay cycle
