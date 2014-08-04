@@ -1,8 +1,15 @@
-// ------------------------------------------------------------
+// ------------------------------------------------------------------------------------
 //
 // Fading through all content inside the class 'divfader'
 //
-// ------------------------------------------------------------
+// ------------------------------------------------------------------------------------
+// ----------------------- INSTRUCTIONS -----------------------------------------------
+// For the script to work properly, use class "divfader" as container.
+// Place divs/objects you want to include in the slider in class "divfader-content".
+// Controls/dots will be created in class "divfader-controller".
+// For next/previous-controls, use class "divfader-next" and "divfader-previous".
+// ------------------------------------------------------------------------------------
+
 
 // Playback variables
 var autoplay = true;
