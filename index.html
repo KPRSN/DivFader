@@ -45,17 +45,21 @@
 			-ms-flex-pack: left; 
 		}
 
-		.divfader-control {
+		.divfader-control, .divfader-control-active {
 			padding: 3px;
 			font-size: 25px;
 			opacity: 0.5;
+			cursor: pointer;
 		}
 
 		.divfader-control-active {
-			padding: 3px;
-			font-size: 25px;
 			opacity: 1.0;
 		}
+
+		.divfader-next, .divfader-previous {
+			cursor: pointer;
+		}
+
 	</style>
 
 	<script src="jquery-1.11.1.min.js"></script>
