@@ -12,6 +12,9 @@
 }
 
 .divfader-controller {
+	padding-top: 10px;
+	padding-bottom: 10px;
+
 	display: -webkit-box;
 	display: -moz-box;
 	display: box;
@@ -40,8 +43,11 @@
 }
 
 .divfader-control, .divfader-control-active {
-	padding: 5px;
-	font-size: 30px;
+	height: 12px;
+	width: 12px;
+	border-radius: 50%;
+	background: #000;
+	margin: 5px;
 	opacity: 0.3;
 	cursor: pointer;
 }

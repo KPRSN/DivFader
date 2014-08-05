@@ -45,7 +45,7 @@ function initializeControls() {
 
 	// Add controls to DOM
 	for (n = 0; n < content.length; n++) {
-		$('.divfader-controller').append('<div class="divfader-control">•</div>');
+		$('.divfader-controller').append('<div class="divfader-control"></div>');
 	}
 
 	// Save controls
