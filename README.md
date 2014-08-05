@@ -1,6 +1,16 @@
 DivFader
 ========
-A minuscule image and div slider using jQuery
+A minuscule image and div slider using jQuery.
+
+
+## Configuration
+*The DivFader can be easily configured by tweaking the playback variables in divfader.js.*
+
+`autoplay` *— Automatic playback on load*  
+`showControls` *— Show slide index controls (dots)*  
+`fadeTimer` *— Transition time in miliseconds*  
+`delay` *— Delay between slides in miliseconds*  
+ 
  
 ## Usage
 1. For the script to work properly, use class "divfader" as container.
