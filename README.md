@@ -4,7 +4,7 @@ A minuscule image and div slider using jQuery.
 
 
 ## Configuration
-*The DivFader can be easily configured by tweaking the playback variables in divfader.js.*
+The DivFader can be easily configured by tweaking the playback variables in divfader.js.
 
 `autoplay` *— Automatic playback on load*  
 `showControls` *— Show slide index controls (dots)*  
