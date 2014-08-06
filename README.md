@@ -17,6 +17,7 @@ The DivFader can be easily configured by tweaking the playback variables in divf
 2. Place divs/objects you want to include in the slider in class "divfader-content".
 3. Controls (dots) will be created in class "divfader-controller".
 4. For next/previous-controls, use classes "divfader-next" and "divfader-previous".
+5. Style controls and content until you're pleased, then have some coffee.
 
 ```HTML
 <div class="divfader">
