@@ -116,12 +116,18 @@ function divfader(container)
 		// Stop all other animations
 		content.stop();
 
-		// Responsive controls
+		// Responsive controls (update control instantly)
 		if (responsive) setActiveControl(slideId);
 
-		// Fade out previous slide
-		slide = content.eq(current);
-		slide.fadeOut(that.fadeTimer, function() {
+		// Only fade out for new slides
+		if (slideId != current) {
+			// Fade out previous slide
+			slide = content.eq(current);
+			slide.fadeOut(that.fadeTimer, fadeIn);
+		}
+		else fadeIn();
+
+		function fadeIn() {
 			current = slideId;
 
 			// Update controls normally
@@ -130,7 +136,7 @@ function divfader(container)
 			// Fade in
 			slide = content.eq(slideId);
 		    slide.fadeIn(that.fadeTimer);
-		});
+		};
 	}
 
 	// Show next slide
