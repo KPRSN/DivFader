@@ -4,16 +4,15 @@ A minuscule image and div slider using jQuery.
 
 
 ## Configuration
-The DivFader can be easily configured by tweaking the playback variables in divfader.js.
+The DivFader can be easily configured by tweaking the public playback variables.
 
 `autoplay` *— Automatic playback on load*  
 `showControls` *— Show slide index controls (dots)*  
 `fadeTimer` *— Transition time in miliseconds*  
 `delay` *— Delay between slides in miliseconds*  
  
- 
 ## Usage
-1. For the script to work properly, use class "divfader" as container.
+1. Initialize with container. E.g. `divfader('your-container')`
 2. Place divs/objects you want to include in the slider in class "divfader-content".
 3. Controls (dots) will be created in class "divfader-controller".
 4. For next/previous-controls, use classes "divfader-next" and "divfader-previous".
