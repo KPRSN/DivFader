@@ -12,12 +12,7 @@
 // For next/previous-controls, use class "divfader-next" and "divfader-previous".
 //
 // Use public variables autoplay, fadeTimer and delay to configure.
-// It's also possible to easily customize the different container and style classes.
-//
-// Start by calling function "start()"!
 // ------------------------------------------------------------------------------------
-
-// TODO: Make it possible to delay certain initialization steps, to make it possible to change containers outside this class.
 
 function divfader(container) 
 {
@@ -25,7 +20,8 @@ function divfader(container)
 	this.autoplay = true;
 	this.fadeTimer = 400;
 	this.delay = 2000;
-	this.containers = {
+
+	var containers = {
 		// Container classes
 		content: '.divfader-content',
 		controller: '.divfader-controller',
@@ -33,51 +29,41 @@ function divfader(container)
 		previous: '.divfader-previous',
 		control: '.divfader-control'
 	}
-	this.controlClasses = {
+	var controlClasses = {
 		// CSS Clases used to differentiate active and inactive controls
 		active: 'divfader-control-active',
 		inactive: 'divfader-control'
 	}
 
-
 	var that = this; // <--- I don't like the web.
 
 	var container = $(container);
-	var content = container.children(that.containers.content).children().hide();
-	var controller = container.children(that.containers.controller);
+	var content = container.children(containers.content).children().hide();
+	var controller = container.children(containers.controller);
 	var controls;
-	var controlNext = container.children(that.containers.next);
-	var controlPrevious = container.children(that.containers.previous);
+	var controlNext = container.children(containers.next);
+	var controlPrevious = container.children(containers.previous);
 
 	var	current = content.length-1;
 	var timeout;
 
-
-	var started = false;
 
 	// ------------------------
 	// Initialization
 	// ------------------------
 	// Onload
 	$(document).ready(function() {
-		that.start();
+		initializeControls();
+
+		if (that.autoplay) cycle();
+		else showSlide(0);
 	});
 
-	// Start execution
-	this.start = function() {
-		if (!started) {
-			started = true;
-			initializeControls();
-
-			if (that.autoplay) cycle();
-			else showSlide(0);
-		}
-	}
 
 	// Initialize controls (dots)
 	function initializeControls() {
 		// Remove prefix (.) from container class
-		var className = that.containers.control;
+		var className = containers.control;
 		className.replace('.', '');
 
 		// Add controls to DOM
@@ -161,8 +147,8 @@ function divfader(container)
 
 	// Set active control (dot)
 	function setActiveControl(id) {
-		controls.removeClass(that.controlClasses.active).addClass(that.controlClasses.inactive);
-		controls.eq(id).removeClass(that.controlClasses.inactive).addClass(that.controlClasses.active);
+		controls.removeClass(controlClasses.active).addClass(controlClasses.inactive);
+		controls.eq(id).removeClass(controlClasses.inactive).addClass(controlClasses.active);
 	}
 
 	// Abort that.autoplay cycle
