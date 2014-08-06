@@ -57,7 +57,7 @@ function initializeControls() {
 // Actions
 // ------------------------
 // Controller clicked (dot)
-$('.divfader-controller').on('click',function(event){
+$('.divfader-controller').on('click', '*', function(event){
 	abortCycle();
     showSlide($(event.target).index(), true);
 });
