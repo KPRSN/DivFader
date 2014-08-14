@@ -7,7 +7,6 @@ A minuscule image and div slider using jQuery.
 The DivFader can be easily configured by tweaking the public playback variables.
 
 `autoplay` *— Automatic playback on load*  
-`showControls` *— Show slide index controls (dots)*  
 `fadeTimer` *— Transition time in miliseconds*  
 `delay` *— Delay between slides in miliseconds*  
  
